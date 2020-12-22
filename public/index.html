@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>cash register</title>
+
+		<!-- update the version number as needed -->
+		<script defer src="/__/firebase/8.2.1/firebase-app.js"></script>
+		<!-- include only the Firebase features as you need -->
+		<script defer src="/__/firebase/8.2.1/firebase-auth.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-database.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-firestore.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-functions.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-messaging.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-storage.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-analytics.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-remote-config.js"></script>
+		<script defer src="/__/firebase/8.2.1/firebase-performance.js"></script>
+		<!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+		<script defer src="/__/firebase/init.js?useEmulator=true"></script>
+		<script src="main.js" defer></script>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<style></style>
+	<body>
+		<!-- 
+			<div id="firebase_test">
+				<h1>hello worlders</h1>
+		<scetion id="whenSignedOut">
+			<button id="signInBtn">Sign in with Google</button>
+		</scetion>
+		<section id="whenSignedIn" hidden="true">
+			<h1>Welcome!</h1>
+			<div id="userDetails"></div>
+			<button id="signOutBtn">Sign Out</button>
+		</section>
+		<section>
+			<ul id="thingsList"></ul>
+			<button id="createThing">Create new Item</button>
+		</section>
+			</div>
+		 -->
+
+		<div id="cash-register">
+			<nav>
+				<div class="grid-left">
+					<ul>
+						<li><img src="shopping-cart.svg" height="40vh" width="40vw" /></li>
+						<li><h3>| Cash Register</h3></li>
+					</ul>
+				</div>
+				<div class="grid-right">
+					<p id="logout">logout</p>
+				</div>
+			</nav>
+
+			<div class="grid-container">
+				<div id="allItemsGrid" class="grid-item">
+					<div id="searchComponent">
+						<input
+							type="text"
+							id="searchTextbar"
+							placeholder="Search items.."
+						/>
+					</div>
+					<h1>all items</h1>
+					<div class="scrollable"><ul id="allItemsList"></ul></div>
+				</div>
+				<div id="purchasedItemsGrid" class="grid-item">
+					<h1>purchased items</h1>
+					<ul id="purchasedItemsList"></ul>
+				</div>
+			</div>
+
+			<div id="paymentComponent">
+				<h3 id="total">total</h3>
+				<button type="submit" id="checkOutBtn">Check Out</button>
+			</div>
+		</div>
+	</body>
+</html>
