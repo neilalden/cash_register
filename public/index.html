@@ -63,21 +63,31 @@
 				</div>
 			</nav>
 
-			<div class="grid-container">
+			<div id="main" class="grid-container">
 				<div id="allItemsGrid" class="grid-item">
 					<div id="searchComponent">
 						<input
 							type="text"
 							id="searchTextbar"
-							placeholder="Search items.."
+							placeholder="Search items..."
 						/>
 					</div>
-					<h1>all items</h1>
-					<div class="scrollable"><ul id="allItemsList"></ul></div>
+					<div id="allItemsContainer">
+						<h1>All items</h1>
+
+						<div class="scrollableContainer"><ul id="allItemsList"></ul></div>
+					</div>
 				</div>
 				<div id="purchasedItemsGrid" class="grid-item">
-					<h1>purchased items</h1>
-					<ul id="purchasedItemsList"></ul>
+					<div id="cancelComponent">
+						<button id="cancelBtn">cancel</button>
+					</div>
+					<div id="purchasedItemsContainer">
+						<h1>Cart</h1>
+						<div class="scrollableContainer">
+							<ul id="purchasedItemsList"></ul>
+						</div>
+					</div>
 				</div>
 			</div>
 

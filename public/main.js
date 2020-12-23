@@ -5,6 +5,7 @@ const itemsRef = db.collection("items");
 const allItemsList = document.getElementById("allItemsList");
 const purchasedItemsList = document.getElementById("purchasedItemsList");
 const total = document.getElementById("total");
+const cancelBtn = document.getElementById("cancelBtn");
 
 // onload main function
 
@@ -22,7 +23,7 @@ function main() {
 				desc +
 				`\`,\`` +
 				cost +
-				`\`)">${name} - ${desc} </button></li>`
+				`\`)"><h3 >${name}</h3><p>${desc}</p></button></li>`
 			);
 		});
 		allItemsList.innerHTML = items.join("");
@@ -30,27 +31,31 @@ function main() {
 }
 main();
 
-const arrayList = [];
+let arrayList = [];
 function addItem(name, desc, cost) {
 	var index = arrayList.findIndex((item) => item.name == name);
 	if (index == -1) {
-		arrayList.push({ name, cost, amount: 1 });
+		arrayList.push({ name, cost, quantity: 1 });
 	} else {
-		arrayList[index].amount += 1;
+		arrayList[index].quantity += 1;
 	}
-	render(arrayList);
+	cartRender(arrayList);
 }
+cancelBtn.addEventListener("click", () => {
+	arrayList = [];
+	cartRender(arrayList);
+});
 
 //!!!!!!!!!!RENDER FUNCTION!!!!!!!!!!//
-function render(items) {
+function cartRender(items) {
 	purchasedItemsList.innerHTML = "";
 	total.innerHTML = "Total : ";
 	let overAllTotal = 0;
 	items.map((item) => {
-		purchasedItemsList.innerHTML += `<li>${item.name} ${item.amount}  -  ${
-			item.amount * item.cost
+		purchasedItemsList.innerHTML += `<li>${item.name} ${item.quantity}  -  ${
+			item.quantity * item.cost
 		}</li>`;
-		overAllTotal += item.amount * item.cost;
+		overAllTotal += item.quantity * item.cost;
 	});
 	total.innerHTML = "Total : " + overAllTotal;
 }

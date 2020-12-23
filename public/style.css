@@ -9,13 +9,38 @@ li {
 }
 button {
 	cursor: pointer;
-	font-size: 50px;
+	border: none;
+	outline: none;
+
+	background: none;
+}
+
+/* custom scrollbar */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
 
 /* nav styling */
 
 nav {
-	width: 100vw;
+	width: 100%;
 	height: 50px;
 	background: #ff66ff;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -43,54 +68,126 @@ nav .grid-left ul li h3 {
 /* search component styling */
 #searchComponent {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	width: 400px;
+	border-radius: 3px;
+
+	width: 90%;
 	height: 50px;
-	margin: 20px;
+	margin: 5% auto;
 }
 #searchComponent input {
+	border-radius: 3px;
+
 	border: none;
-	width: 390px;
+	width: 97%;
 	height: 50px;
-	padding-left: 5px;
-}
-#searchComponent input:focus {
+	padding-left: 3%;
 	outline: none;
 }
-
+/* cancel component */
+#cancelComponent {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 3px;
+	width: 100px;
+	height: 50px;
+	margin: 5% auto;
+}
+#cancelComponent button {
+	border-radius: 3px;
+	background-color: crimson;
+	border: none;
+	width: 100px;
+	height: 50px;
+	padding-left: 3%;
+	outline: none;
+}
 /* main body styling */
 
-.grid-container {
-	width: 100vw;
+#main {
+	width: 100%;
+	height: 60%;
 	display: inline-grid;
 	grid-template-columns: auto auto;
 }
 
-.grid-item {
+#main .grid-item {
 	text-align: center;
+	width: 100%;
+	height: 100%;
 }
 #purchasedItemsGrid {
-	width: 60vw;
-	height: 60vh;
-	background-color: aqua;
 }
+#purchasedItemsGrid #purchasedItemsContainer {
+	width: 90%;
+	height: 80%;
+	margin: 0 5%;
+	border-radius: 3px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#purchasedItemsGrid #purchasedItemsContainer .grid-container {
+	display: inline-grid;
+	grid-template-columns: auto auto auto auto auto auto;
+}
+#purchasedItemsGrid #purchasedItemsContainer .grid-container .grid-item {
+}
+/* //////////////////// */
 #allItemsGrid {
-	width: 40vw;
-	height: 60vh;
-	overflow: hidden;
 }
-#allItemsGrid .scrollable {
-	width: 40vw;
-	height: 38vh;
+#allItemsGrid #allItemsContainer {
+	width: 90%;
+	height: 80%;
+	margin: 0 5%;
+	border-radius: 3px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#allItemsContainer .scrollableContainer {
+	width: 100%;
+	height: 40vh;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+#allItemsGrid .scrollableContainer ul#allItemsList {
+}
+#allItemsGrid .scrollableContainer ul#allItemsList li button {
+	width: 60%;
+	margin: 3px;
+	transition: 0.1s;
+	text-align: center;
+}
+#allItemsGrid .scrollableContainer ul#allItemsList li button:hover {
+	border: 3px solid #ff66ff;
+	margin: 0;
+
+	border-radius: 3px;
+}
+#allItemsGrid .scrollableContainer ul#allItemsList li button h3 {
+	float: left;
+}
+#allItemsGrid .scrollableContainer ul#allItemsList li button p {
+	float: right;
+}
+
+#paymentComponent {
+	text-align: center;
+	margin-top: 100px;
+	bottom: 0;
+	width: 100%;
+	height: 150px; /* Footer height */
+}
 @media only screen and (max-width: 600px) {
+	#main {
+		width: 100%;
+		height: 60%;
+		display: inline-grid;
+		grid-template-columns: auto;
+	}
+	#searchComponent {
+		width: 80%;
+	}
 	#purchasedItemsGrid {
-		background-color: red;
 	}
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
 	#purchasedItemsGrid {
-		background-color: blue;
 	}
 }
