@@ -3,6 +3,10 @@ html {
 	margin: 0;
 	padding: 0;
 	font-family: "Oswald", sans-serif;
+	font-size: 18px;
+}
+h1 {
+	font-size: 24px;
 }
 li {
 	list-style: none;
@@ -14,7 +18,9 @@ button {
 
 	background: none;
 }
-
+#subtitle {
+	border-top: 1px #555 solid;
+}
 /* custom scrollbar */
 ::-webkit-scrollbar {
 	width: 10px;
@@ -67,15 +73,13 @@ nav .grid-left ul li h3 {
 
 /* search component styling */
 #searchComponent {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 3px;
-
 	width: 90%;
 	height: 50px;
 	margin: 5% auto;
 }
 #searchComponent input {
 	border-radius: 3px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 	border: none;
 	width: 97%;
@@ -85,19 +89,15 @@ nav .grid-left ul li h3 {
 }
 /* cancel component */
 #cancelComponent {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 3px;
-	width: 100px;
-	height: 50px;
-	margin: 5% auto;
 }
 #cancelComponent button {
-	border-radius: 3px;
 	background-color: crimson;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 3px;
 	border: none;
 	width: 100px;
 	height: 50px;
-	padding-left: 3%;
+	margin: 5% auto;
 	outline: none;
 }
 /* main body styling */
@@ -123,11 +123,41 @@ nav .grid-left ul li h3 {
 	border-radius: 3px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-#purchasedItemsGrid #purchasedItemsContainer .grid-container {
-	display: inline-grid;
-	grid-template-columns: auto auto auto auto auto auto;
+#purchasedItemsGrid .scrollableContainer {
+	width: 100%;
+	height: 40vh;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
-#purchasedItemsGrid #purchasedItemsContainer .grid-container .grid-item {
+#purchasedItemsGrid #purchasedItemsContainer #purchasedItemsList {
+	padding-top: 10px;
+}
+#purchasedItemsGrid #purchasedItemsContainer #purchasedItemsList button {
+	width: 60%;
+	margin: 3px;
+	transition: 0.1s;
+	text-align: center;
+}
+#purchasedItemsGrid #purchasedItemsContainer #purchasedItemsList button:hover {
+	background-color: crimson;
+	color: #fff;
+	border-radius: 3px;
+}
+
+/* #purchasedItemsGrid
+	#purchasedItemsContainer
+	#purchasedItemsList
+	li.hidden
+	span {
+	visibility: visible;
+	background-color: chartreuse;
+} */
+
+#purchasedItemsGrid .scrollableContainer ul#purchasedItemsList li button h3 {
+	float: left;
+}
+#purchasedItemsGrid .scrollableContainer ul#purchasedItemsList li button p {
+	float: right;
 }
 /* //////////////////// */
 #allItemsGrid {
@@ -174,6 +204,16 @@ nav .grid-left ul li h3 {
 	width: 100%;
 	height: 150px; /* Footer height */
 }
+#paymentComponent #checkOutBtn {
+	background-color: #ff66ff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 3px;
+	border: none;
+	width: 100px;
+	height: 50px;
+	margin: 0 auto;
+	outline: none;
+}
 @media only screen and (max-width: 600px) {
 	#main {
 		width: 100%;
@@ -184,7 +224,8 @@ nav .grid-left ul li h3 {
 	#searchComponent {
 		width: 80%;
 	}
-	#purchasedItemsGrid {
+	#cancelComponent button {
+		margin-top: 50px;
 	}
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
